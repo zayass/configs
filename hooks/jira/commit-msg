@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# .git/hooks/commit-msg
+# Copy ticket id from current branch to commit message if that match pattern
+
+pattern='^\([A-Z]\+-[0-9]\+\)/.*$'
+
+branch=$( git symbolic-ref HEAD 2>/dev/null )
+branch=${branch##refs/heads/}
+
+if [ ! $( echo $branch | grep $pattern ) ]
+then
+    exit 0
+fi
+
+branch=$( echo $branch | sed -e "s%$pattern%\1%" )
+
+echo -e "\n$branch" >> $1
