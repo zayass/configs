@@ -1,2 +1,2 @@
 [aliases]
-  log-local = log origin/$( branch=`git symbolic-ref HEAD 2>/dev/null`; echo ${branch##refs/heads/} )..
+  log-local = "!git log origin/$( branch=`git symbolic-ref HEAD 2>/dev/null`; echo ${branch##refs/heads/} ).."
