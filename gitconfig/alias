@@ -1,7 +1,14 @@
 [alias]
+    # Helper for another aliases. Print current branch name
     here = "!echo $(git symbolic-ref HEAD | sed 's/refs\\/heads\\///g')"
 
+    # Setup upstream for current branch to branch with same name on origin
     track = "!git branch --set-upstream-to=origin/`git here`"
 
-    remove-upstream = "!git push origin :`git here`"
+    # Push current branch to origin and setup upstream for it
+    publish = "push -u origin HEAD"
+    # Remove current branch from origin
+    unpublish = "!git push origin :`git here`"
+
+    # Show local commits which going to origin on push
     log-local = "!git log origin/`git here`.."
