@@ -1,3 +1,4 @@
 [aliases]
     here = "!echo $(git symbolic-ref HEAD | sed 's/refs\\/heads\\///g')"
+    track = "!git branch --set-upstream-to=origin/`git here`
     log-local = "!git log origin/`git here`.."
