@@ -1,7 +1,7 @@
 [alias]
     here = "!echo $(git symbolic-ref HEAD | sed 's/refs\\/heads\\///g')"
 
-    track = "!git branch --set-upstream-to=origin/`git here`
+    track = "!git branch --set-upstream-to=origin/`git here`"
     new-branch = "!new-branch() { git checkout -b $1 --track `git here` }; new-branch"
 
     remove-upstream = "!git push origin :`git here`"
