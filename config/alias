@@ -2,6 +2,7 @@
 [alias]
     # Helper for another aliases. Print current branch name
     here = "!echo $(git symbolic-ref HEAD | sed 's/refs\\/heads\\///g')"
+    last = "log -1"
 
     # Setup upstream for current branch to branch with same name on origin
     track = "!git branch --set-upstream-to=origin/`git here`"
