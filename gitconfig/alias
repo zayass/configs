@@ -1,3 +1,4 @@
+# vi: ft=gitconfig
 [alias]
     # Helper for another aliases. Print current branch name
     here = "!echo $(git symbolic-ref HEAD | sed 's/refs\\/heads\\///g')"
