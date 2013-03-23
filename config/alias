@@ -1,7 +1,7 @@
 # vi: ft=gitconfig
 [alias]
     # Helper for another aliases. Print current branch name
-    here = "!echo $(git symbolic-ref HEAD | sed 's/refs\\/heads\\///g')"
+    here = "!echo $(git symbolic-ref HEAD | sed 's%refs/heads/%%g')"
     last = "log -1"
 
     # Setup upstream for current branch to branch with same name on origin
