@@ -22,7 +22,7 @@ fi
 ticket=$( echo $branch | sed -e "s%$pattern%\1%" )
 
 # Do nothing if ticket number already in message
-if [ `grep $1 $ticket` ]
+if [ `grep $ticket $1` ]
 then
     exit 0
 fi
