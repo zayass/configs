@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# .git/hooks/commit-msg
+# Copy ticket id from current branch to commit message if that match pattern
+
+# Empty commit messages not allowed
+# todo: rewrite with standart git behaibour like --allow-empty-message
+if [ ! `cat $1` ]
+then
+    exit 0
+fi
+
+pattern='^\([A-Z]\+-[0-9]\+\)/.*$'
+
+branch=$(git symbolic-ref HEAD | sed 's%refs/heads/%%g')
+
+if [ ! `echo $branch | grep $pattern` ]
+then
+    exit 0
+fi
+
+ticket=$( echo $branch | sed -e "s%$pattern%\1%" )
+
+# Do nothing if ticket number already in message
+if [ `grep $ticket $1` ]
+then
+    exit 0
+fi
+
+echo -e "\n$ticket" >> $1
