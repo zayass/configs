@@ -1,4 +1,9 @@
 # vi: ft=gitconfig
+[push]
+    default = upstram
+[help]
+    autocorrect = -1
+
 [alias]
     # Helper for another aliases. Print current branch name
     here = "!echo $(git symbolic-ref HEAD | sed 's%refs/heads/%%g')"
