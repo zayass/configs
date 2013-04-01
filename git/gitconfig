@@ -7,7 +7,7 @@
 [alias]
     # Helper for another aliases. Print current branch name
     here = "!echo $(git symbolic-ref HEAD | sed 's%refs/heads/%%g')"
-    last = "log -1"
+    last = "!git --no-pager log -1"
 
     # Setup upstream for current branch to branch with same name on origin
     track = "!git branch --set-upstream-to=origin/`git here`"
@@ -19,3 +19,4 @@
 
     # Show local commits which going to origin on push
     log-local = "!git log origin/`git here`.."
+    log-remote = "!git fetch; git log ..origin/`git here`"
