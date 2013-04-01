@@ -19,4 +19,4 @@
 
     # Show local commits which going to origin on push
     log-local = "!git log origin/`git here`.."
-    log-remote = "!git fetch; git log ..origin/`git here`"
+    log-remote = "!git fetch origin `git here` && git log ..origin/`git here`"
