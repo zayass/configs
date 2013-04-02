@@ -18,5 +18,5 @@
     unpublish = "!git push origin :`git here`"
 
     # Show local commits which going to origin on push
-    log-local = "!git log origin/`git here`.."
-    log-remote = "!git fetch origin `git here`:refs/remotes/origin/`git here` && git log ..origin/`git here`"
+    log-local = "!git --no-pager log origin/`git here`.."
+    log-remote = "!git --no-pager log ..origin/`git here`"
